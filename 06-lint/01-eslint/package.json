@@ -26,8 +26,7 @@
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:conflict": "eslint-config-prettier 'src/**/*.{js,jsx,ts,tsx}'",
-    "preinstall": "typesync || :",
-    "prepare": "simple-git-hooks > /dev/null"
+    "preinstall": "typesync || :"
   },
   "eslintConfig": {
     "extends": [
@@ -67,21 +66,5 @@
     "stylelint-config-recess-order": "^3.0.0",
     "stylelint-config-standard": "^26.0.0",
     "stylelint-order": "^5.0.0"
-  },
-  "simple-git-hooks": {
-    "pre-commit": ". ./lint-staged-around",
-    "pre-push": ". ./test-around"
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": [
-      "prettier --write --loglevel=error",
-      "eslint --fix --quiet"
-    ],
-    "src/**/*.{css,less,sass,scss}": [
-      "stylelint --fix --quiet"
-    ],
-    "{public,src}/**/*.{html,gql,graphql,json}": [
-      "prettier --write --loglevel=error"
-    ]
   }
 }
